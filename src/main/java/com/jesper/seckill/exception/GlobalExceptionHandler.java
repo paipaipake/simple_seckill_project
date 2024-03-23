@@ -37,4 +37,9 @@ public class GlobalExceptionHandler {
         }
 
     }
+
+    @ExceptionHandler(value = SecKillException.class)
+    public Result<String> exceptionHandler(HttpServletRequest request, SecKillException ex) {
+        return Result.error(ex.getCodeMsg());
+    }
 }
